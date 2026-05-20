@@ -1,5 +1,8 @@
 (function () {
-    /* ─── FADE-IN ON SCROLL ─── */
+    const SUPABASE_URL = 'https://axizggoozkrticfhsmjw.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_E4uCzGnnDOWGNChcwv_oXw_KHVcpF3O';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
     const fadeEls = document.querySelectorAll('.fade-in');
 
     const observer = new IntersectionObserver(
@@ -16,7 +19,6 @@
 
     fadeEls.forEach((el) => observer.observe(el));
 
-    /* ─── PROGRESS BAR ANIMATION ─── */
     const progressFill = document.querySelector('.progress-fill');
     if (progressFill) {
         const progressObserver = new IntersectionObserver(
@@ -33,7 +35,6 @@
         progressObserver.observe(progressFill.parentElement);
     }
 
-    /* ─── EMAIL FORM — BREVO ─── */
     const form = document.getElementById('emailForm');
     if (!form) return;
 
@@ -55,28 +56,21 @@
         submitBtn.textContent = 'Envoi en cours…';
 
         try {
-            const response = await fetch(
-                'https://api-brevo.kpital.workers.dev/subscribe',
-                {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email }),
-                }
-            );
+            const { error } = await supabase
+                .from('subscribers')
+                .insert({ email });
 
-            if (response.ok) {
-                form.innerHTML = `
-                    <div class="success-message">
-                        <p class="success-title">✓ Tu es inscrit&middot;e !</p>
-                        <p class="success-text">On te tient au courant dès le lancement.</p>
-                    </div>
-                `;
-            } else {
-                throw new Error('Erreur serveur');
-            }
+            if (error) throw error;
+
+            form.innerHTML = `
+                <div class="success-message">
+                    <p class="success-title">✓ Tu es inscrit&middot;e !</p>
+                    <p class="success-text">On te tient au courant dès le lancement.</p>
+                </div>
+            `;
         } catch {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Je rejoins la liste d\'attente ›';
+            submitBtn.textContent = "Je rejoins la liste d'attente ›";
             emailInput.style.borderColor = '#EF4444';
 
             const errMsg = document.createElement('p');
