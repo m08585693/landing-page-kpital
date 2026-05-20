@@ -68,12 +68,12 @@ main {
 
 .nav-link {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.7);
     transition: color 0.2s;
 }
 
 .nav-link:hover {
-    color: rgba(255, 255, 255, 0.85);
+    color: #ffffff;
 }
 
 /* ─── BUTTONS ─── */
@@ -292,7 +292,7 @@ main {
 
 .hero-sub {
     font-size: clamp(1rem, 2.5vw, 1.15rem);
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.7);
     max-width: 520px;
     margin-bottom: 0;
     line-height: 1.7;
@@ -321,7 +321,7 @@ main {
 
 .preview-label {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.55);
 }
 
 .preview-dots {
@@ -361,14 +361,14 @@ main {
 
 .preview-goal-pct {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.55);
 }
 
 .preview-goal-amounts {
     display: flex;
     justify-content: space-between;
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.4);
     margin-bottom: 6px;
 }
 
@@ -412,7 +412,7 @@ main {
 
 .section-text {
     font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.8;
     max-width: 580px;
 }
@@ -463,7 +463,7 @@ main {
 
 .step-text {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.65);
     line-height: 1.6;
 }
 
@@ -498,7 +498,7 @@ main {
     justify-content: space-between;
     margin-top: 8px;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* ─── EMAIL FORM ─── */
@@ -541,7 +541,7 @@ main {
 
 .form-micro {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.5);
     margin-top: 16px;
 }
 
@@ -584,7 +584,7 @@ main {
 
 .footer-tagline {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.55);
 }
 
 .footer-links {
@@ -594,7 +594,7 @@ main {
 
 .footer-links a {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.4);
     transition: color 0.2s;
 }
 
@@ -625,11 +625,6 @@ main {
         padding-bottom: 60px;
     }
 
-    .hero-actions {
-        flex-direction: column;
-        gap: 16px;
-    }
-
     .form-row {
         flex-direction: column;
     }
@@ -657,5 +652,25 @@ main {
 
     .preview-card {
         padding: 16px;
+    }
+
+    .ambient-orb-1 {
+        width: 200px;
+        height: 200px;
+        opacity: 0.15;
+    }
+
+    .ambient-orb-2 {
+        width: 180px;
+        height: 180px;
+        opacity: 0.1;
+    }
+
+    .ambient-orb-3 {
+        display: none;
+    }
+
+    .particle {
+        opacity: 0.15 !important;
     }
 }
