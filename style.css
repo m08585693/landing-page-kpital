@@ -202,16 +202,8 @@ a {
     font-size: clamp(1rem, 2.5vw, 1.15rem);
     color: rgba(255, 255, 255, 0.55);
     max-width: 520px;
-    margin-bottom: 40px;
+    margin-bottom: 0;
     line-height: 1.7;
-}
-
-.hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 /* ─── DASHBOARD PREVIEW ─── */
