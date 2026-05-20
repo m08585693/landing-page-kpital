@@ -568,6 +568,114 @@ main {
     margin-top: 12px;
 }
 
+/* ─── PARRAINAGE ─── */
+.parrainage-sub {
+    margin-bottom: 40px;
+}
+
+.parrainage-cards {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.parrainage-card {
+    flex: 1;
+    background: #0d1117;
+    border: 1px solid #1c2230;
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.parrainage-card:hover {
+    border-color: rgba(77, 158, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.parrainage-card-highlight {
+    border-color: rgba(77, 158, 255, 0.4);
+    background: rgba(77, 158, 255, 0.04);
+    position: relative;
+}
+
+.parrainage-card-highlight::before {
+    content: 'Populaire';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4d9eff;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+}
+
+.parrainage-count {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #4d9eff;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.parrainage-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.parrainage-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+}
+
+.parrainage-desc strong {
+    color: #ffffff;
+}
+
+.parrainage-link-box {
+    text-align: center;
+}
+
+.parrainage-link-row {
+    display: flex;
+    gap: 12px;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.parrainage-input {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-family: 'Inter', monospace;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: default;
+    user-select: all;
+}
+
+.btn-copy {
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.btn-copy.copied {
+    background: #22c55e;
+    pointer-events: none;
+}
+
 /* ─── FOOTER ─── */
 .footer {
     padding: 48px 0;
@@ -623,6 +731,14 @@ main {
     .hero {
         padding-top: 140px;
         padding-bottom: 60px;
+    }
+
+    .parrainage-cards {
+        flex-direction: column;
+    }
+
+    .parrainage-link-row {
+        flex-direction: column;
     }
 
     .form-row {

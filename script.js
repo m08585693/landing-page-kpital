@@ -37,47 +37,86 @@
     }
 
     const form = document.getElementById('emailForm');
-    if (!form) return;
+    if (form) {
+        const emailInput = document.getElementById('emailInput');
+        const submitBtn = form.querySelector('.btn-submit');
 
-    const emailInput = document.getElementById('emailInput');
-    const submitBtn = form.querySelector('.btn-submit');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+            const email = emailInput.value.trim();
 
-        const email = emailInput.value.trim();
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                emailInput.style.borderColor = '#EF4444';
+                return;
+            }
 
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            emailInput.style.borderColor = '#EF4444';
-            return;
-        }
+            emailInput.style.borderColor = '';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours…';
 
-        emailInput.style.borderColor = '';
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Envoi en cours…';
+            try {
+                const { error } = await supabase
+                    .from('subscribers')
+                    .insert({ email });
 
-        try {
-            const { error } = await supabase
-                .from('subscribers')
-                .insert({ email });
+                if (error) throw error;
 
-            if (error) throw error;
+                const code = email.split('@')[0].slice(0, 4).toUpperCase() + Math.random().toString(36).slice(2, 6).toUpperCase();
+                const referralInput = document.getElementById('referralInput');
+                if (referralInput) {
+                    referralInput.value = 'kpital.app/invite/' + code;
+                }
 
-            form.innerHTML = `
-                <div class="success-message">
-                    <p class="success-title">✓ Tu es inscrit&middot;e !</p>
-                    <p class="success-text">On te tient au courant dès le lancement.</p>
-                </div>
-            `;
-        } catch {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Je rejoins la liste d'attente ›";
-            emailInput.style.borderColor = '#EF4444';
+                form.innerHTML = `
+                    <div class="success-message">
+                        <p class="success-title">✓ Tu es inscrit&middot;e !</p>
+                        <p class="success-text">On te tient au courant dès le lancement.</p>
+                    </div>
+                `;
 
-            const errMsg = document.createElement('p');
-            errMsg.className = 'form-error';
-            errMsg.textContent = 'Une erreur est survenue. Réessaie ou contacte-nous.';
-            form.appendChild(errMsg);
-        }
-    });
+                const parrainage = document.getElementById('parrainage');
+                if (parrainage) {
+                    setTimeout(() => parrainage.scrollIntoView({ behavior: 'smooth' }), 500);
+                }
+            } catch {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Je rejoins la liste d'attente ›";
+                emailInput.style.borderColor = '#EF4444';
+
+                const errMsg = document.createElement('p');
+                errMsg.className = 'form-error';
+                errMsg.textContent = 'Une erreur est survenue. Réessaie ou contacte-nous.';
+                form.appendChild(errMsg);
+            }
+        });
+    }
+
+    const copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+            const input = document.getElementById('referralInput');
+            if (!input) return;
+
+            try {
+                await navigator.clipboard.writeText(input.value);
+                copyBtn.textContent = 'Copié !';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.textContent = "Copier mon lien ›";
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            } catch {
+                input.select();
+                input.setSelectionRange(0, 99999);
+                document.execCommand('copy');
+                copyBtn.textContent = 'Copié !';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.textContent = "Copier mon lien ›";
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }
+        });
+    }
 })();
