@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KPITAL — Épargne progressive pour tes vrais projets</title>
+    <meta name="description" content="KPITAL transforme tes projets en objectifs concrets. Épargne, progresse, et atteins ce qui compte vraiment." />
+    <meta property="og:title" content="KPITAL — Épargne progressive" />
+    <meta property="og:description" content="KPITAL transforme tes projets en objectifs concrets. Tu épargnes, tu progresses, tu achètes." />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <span class="logo">Kpital</span>
+            <div class="nav-right">
+                <a href="#" class="nav-link">Connexion</a>
+                <a href="#signup" class="btn btn-primary btn-sm">S'inscrire</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO -->
+        <section class="section hero">
+            <div class="container hero-inner">
+                <span class="badge">● Épargne progressive</span>
+                <h1>
+                    <span class="hero-line1">Économise pour</span><br />
+                    <span class="hero-line2">ce qui compte vraiment.</span>
+                </h1>
+                <p class="hero-sub">
+                    KPITAL transforme tes projets en objectifs concrets. Tu épargnes, tu progresses, tu achètes.
+                </p>
+                <div class="hero-actions">
+                    <a href="#signup" class="btn btn-primary btn-lg">Commencer gratuitement <span class="chevron">›</span></a>
+                    <a href="#" class="btn-secondary-link">J'ai déjà un compte</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLÈME -->
+        <section class="section problem fade-in">
+            <div class="container">
+                <h2 class="section-title">70 % des Français épargnent sans objectif précis.</h2>
+                <p class="section-text">Résultat : l'argent part. Les projets restent des projets.</p>
+                <p class="section-text-accent">Le vrai problème, ce n'est pas l'argent. C'est l'absence d'objectif.</p>
+            </div>
+        </section>
+
+        <!-- SOLUTION -->
+        <section class="section solution fade-in">
+            <div class="container">
+                <h2 class="section-title">Donne un but à chaque euro.</h2>
+                <div class="steps">
+                    <div class="step-card">
+                        <span class="step-num">①</span>
+                        <h3 class="step-title">Crée ton projet</h3>
+                        <p class="step-text">Voyage, voiture, achat… Tu fixes ton objectif et ton budget.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">②</span>
+                        <h3 class="step-title">Épargne chaque mois</h3>
+                        <p class="step-text">Tu vois ta progression en temps réel, de 0% à 100%.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">③</span>
+                        <h3 class="step-title">Atteins ton but</h3>
+                        <p class="step-text">et achète. Ton budget est prêt. Tu passes à l'acte.</p>
+                    </div>
+                </div>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span>0%</span>
+                        <span>100%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFFÉRENCIATION -->
+        <section class="section diff fade-in">
+            <div class="container">
+                <h2 class="section-title">Pas une banque. Un moteur.</h2>
+                <p class="section-text">Ton livret A te dit combien tu as. KPITAL te dit combien il te reste avant d'y être.</p>
+            </div>
+        </section>
+
+        <!-- PARTENAIRES -->
+        <section class="section partners fade-in">
+            <div class="container">
+                <h2 class="section-title">Arrive chez nos partenaires avec ton budget déjà prêt.</h2>
+                <p class="section-text">Quand tu atteins 100%, KPITAL t'ouvre l'accès à des offres exclusives — agences de voyage, marchands, marques partenaires. Tu n'es plus un prospect. Tu es un acheteur.</p>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="section cta-final fade-in" id="signup">
+            <div class="container">
+                <h2 class="section-title">Ton projet t'attend.</h2>
+                <form class="email-form" id="emailForm" novalidate>
+                    <div class="form-row">
+                        <input type="email" name="email" id="emailInput" class="email-input" placeholder="ton@email.com" required autocomplete="email" />
+                        <button type="submit" class="btn btn-primary btn-lg btn-submit">Je rejoins la liste d'attente <span class="chevron">›</span></button>
+                    </div>
+                    <p class="form-micro">Pas de spam. Accès bêta gratuit. Places limitées.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer fade-in">
+        <div class="container footer-inner">
+            <p class="footer-tagline">KPITAL — L'épargne qui ressemble à tes rêves.</p>
+            <div class="footer-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
