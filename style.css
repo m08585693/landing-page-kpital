@@ -25,6 +25,11 @@ a {
     text-decoration: none;
 }
 
+main {
+    position: relative;
+    z-index: 1;
+}
+
 .container {
     max-width: 720px;
     margin: 0 auto;
@@ -38,11 +43,8 @@ a {
     left: 0;
     width: 100%;
     padding: 16px 0;
-    background: rgba(8, 12, 18, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: transparent;
     z-index: 100;
-    border-bottom: 1px solid rgba(28, 34, 48, 0.5);
 }
 
 .nav-inner {
@@ -187,8 +189,8 @@ a {
 }
 
 /* ─── AMBIENT BACKGROUND ─── */
-.hero-ambient {
-    position: absolute;
+.ambient-bg {
+    position: fixed;
     inset: 0;
     z-index: 0;
     overflow: hidden;
