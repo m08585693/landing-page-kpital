@@ -174,13 +174,103 @@ a {
     padding-top: 160px;
     padding-bottom: 80px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
+
+/* ─── AMBIENT BACKGROUND ─── */
+.hero-ambient {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+}
+
+.ambient-orb-1 {
+    width: 400px;
+    height: 400px;
+    background: #4d9eff;
+    top: -10%;
+    left: -10%;
+    animation: orbFloat1 12s ease-in-out infinite;
+}
+
+.ambient-orb-2 {
+    width: 350px;
+    height: 350px;
+    background: #6eb8ff;
+    bottom: -15%;
+    right: -10%;
+    animation: orbFloat2 15s ease-in-out infinite;
+    opacity: 0.2;
+}
+
+.ambient-orb-3 {
+    width: 250px;
+    height: 250px;
+    background: #3b82f6;
+    top: 40%;
+    left: 50%;
+    animation: orbFloat3 18s ease-in-out infinite;
+    opacity: 0.15;
+}
+
+@keyframes orbFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(60px, 40px) scale(1.05); }
+    66% { transform: translate(-30px, 80px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-50px, -30px) scale(1.08); }
+    66% { transform: translate(40px, -60px) scale(0.92); }
+}
+
+@keyframes orbFloat3 {
+    0%, 100% { transform: translate(-50%, 0) scale(1); }
+    50% { transform: translate(-50%, -40px) scale(1.1); }
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(77, 158, 255, 0.4);
+    animation: particleFloat var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+.particle-1 { --duration: 8s; --delay: 0s; width: 4px; height: 4px; top: 20%; left: 15%; }
+.particle-2 { --duration: 10s; --delay: 1s; width: 6px; height: 6px; top: 60%; left: 10%; opacity: 0.3; }
+.particle-3 { --duration: 7s; --delay: 2s; width: 3px; height: 3px; top: 30%; right: 20%; }
+.particle-4 { --duration: 12s; --delay: 0.5s; width: 5px; height: 5px; top: 70%; right: 15%; opacity: 0.25; }
+.particle-5 { --duration: 9s; --delay: 3s; width: 4px; height: 4px; top: 15%; left: 40%; opacity: 0.5; }
+.particle-6 { --duration: 11s; --delay: 1.5s; width: 7px; height: 7px; top: 50%; left: 5%; opacity: 0.2; }
+.particle-7 { --duration: 8s; --delay: 4s; width: 3px; height: 3px; top: 40%; right: 10%; opacity: 0.35; }
+.particle-8 { --duration: 13s; --delay: 2.5s; width: 5px; height: 5px; top: 80%; right: 30%; opacity: 0.3; }
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+    50% { transform: translateY(-40px) scale(1.5); opacity: 0.15; }
+}
+
+/* ─── SECTION TITLE / TEXT ─── */
 
 .hero h1 {
     font-size: clamp(2.4rem, 7vw, 4rem);
