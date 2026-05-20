@@ -14,7 +14,7 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #0a0a0f;
+    background-color: #080c12;
     color: #ffffff;
     line-height: 1.6;
     min-height: 100vh;
@@ -38,11 +38,11 @@ a {
     left: 0;
     width: 100%;
     padding: 16px 0;
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(8, 12, 18, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(28, 34, 48, 0.5);
 }
 
 .nav-inner {
@@ -84,20 +84,20 @@ a {
     border: none;
     cursor: pointer;
     transition: all 0.25s ease;
-    border-radius: 100px;
+    border-radius: 12px;
     font-size: 0.95rem;
     padding: 10px 22px;
 }
 
 .btn-primary {
-    background: #3B82F6;
+    background: #4d9eff;
     color: #ffffff;
 }
 
 .btn-primary:hover {
-    background: #2563EB;
+    background: #6eb8ff;
     transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 40px rgba(77, 158, 255, 0.3);
 }
 
 .btn-sm {
@@ -136,16 +136,29 @@ a {
 .badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #3B82F6;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #4d9eff;
+    background: rgba(77, 158, 255, 0.1);
+    border: 1px solid rgba(77, 158, 255, 0.2);
     border-radius: 100px;
     padding: 6px 16px;
     letter-spacing: 0.2px;
     margin-bottom: 24px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #4d9eff;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
 }
 
 /* ─── SECTIONS ─── */
@@ -155,7 +168,7 @@ a {
 
 .hero {
     padding-top: 160px;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
     text-align: center;
 }
 
@@ -178,7 +191,7 @@ a {
 }
 
 .hero-line2 {
-    color: #3B82F6;
+    color: #4d9eff;
 }
 
 .hero-sub {
@@ -195,6 +208,108 @@ a {
     gap: 24px;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+/* ─── DASHBOARD PREVIEW ─── */
+.dashboard-preview {
+    padding-top: 0;
+    padding-bottom: 100px;
+}
+
+.preview-card {
+    background: #0d1117;
+    border: 1px solid #1c2230;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.preview-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.preview-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.preview-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1c2230;
+}
+
+.preview-dots span:last-child {
+    background: rgba(77, 158, 255, 0.3);
+}
+
+.preview-goal {
+    margin-bottom: 16px;
+}
+
+.preview-goal:last-child {
+    margin-bottom: 0;
+}
+
+.preview-goal-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.preview-goal-name {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.preview-goal-pct {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.preview-goal-amounts {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 6px;
+}
+
+.preview-bar {
+    height: 6px;
+    background: #1c2230;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.preview-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    width: 0%;
+}
+
+.preview-bar-fill.japan {
+    width: 68%;
+    background: linear-gradient(90deg, #4d9eff, #6eb8ff);
+}
+
+.preview-bar-fill.car {
+    width: 32%;
+    background: linear-gradient(90deg, #4d9eff, #6eb8ff);
+}
+
+.preview-bar-fill.emergency {
+    width: 91%;
+    background: linear-gradient(90deg, #56e39f, #7aedb8);
 }
 
 /* ─── SECTION TITLE / TEXT ─── */
@@ -216,7 +331,7 @@ a {
 
 .section-text-accent {
     font-size: 1.15rem;
-    color: #3B82F6;
+    color: #4d9eff;
     font-weight: 600;
     margin-top: 24px;
 }
@@ -230,22 +345,22 @@ a {
 }
 
 .step-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: #0d1117;
+    border: 1px solid #1c2230;
     border-radius: 16px;
     padding: 24px 28px;
     transition: border-color 0.3s, background 0.3s, transform 0.3s;
 }
 
 .step-card:hover {
-    border-color: rgba(59, 130, 246, 0.25);
-    background: rgba(59, 130, 246, 0.04);
+    border-color: rgba(77, 158, 255, 0.4);
+    background: #111827;
     transform: translateY(-2px);
 }
 
 .step-num {
     font-size: 1.1rem;
-    color: #3B82F6;
+    color: #4d9eff;
     font-weight: 700;
     margin-bottom: 6px;
     display: inline-block;
@@ -280,7 +395,7 @@ a {
 .progress-fill {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, #3B82F6, #60A5FA);
+    background: linear-gradient(90deg, #4d9eff, #6eb8ff);
     border-radius: 100px;
     animation: fillProgress 2.5s ease-out forwards;
 }
@@ -313,7 +428,7 @@ a {
     flex: 1;
     min-width: 240px;
     padding: 14px 20px;
-    border-radius: 100px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.04);
     color: #ffffff;
@@ -328,8 +443,8 @@ a {
 }
 
 .email-input:focus {
-    border-color: #3B82F6;
-    background: rgba(59, 130, 246, 0.06);
+    border-color: #4d9eff;
+    background: rgba(77, 158, 255, 0.06);
 }
 
 .btn-submit {
@@ -350,7 +465,7 @@ a {
 .success-title {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #3B82F6;
+    color: #4d9eff;
     margin-bottom: 8px;
 }
 
@@ -368,7 +483,7 @@ a {
 /* ─── FOOTER ─── */
 .footer {
     padding: 48px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid #1c2230;
 }
 
 .footer-inner {
@@ -419,7 +534,7 @@ a {
 
     .hero {
         padding-top: 140px;
-        padding-bottom: 80px;
+        padding-bottom: 60px;
     }
 
     .hero-actions {
@@ -446,5 +561,13 @@ a {
 
     .nav-link {
         display: none;
+    }
+
+    .dashboard-preview {
+        padding-bottom: 72px;
+    }
+
+    .preview-card {
+        padding: 16px;
     }
 }
