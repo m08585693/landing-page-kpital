@@ -36,6 +36,12 @@
         progressObserver.observe(progressFill.parentElement);
     }
 
+    const baseUrl = window.location.origin + window.location.pathname.replace(/\/$/, '');
+    const referralInput = document.getElementById('referralInput');
+    if (referralInput && !referralInput.value) {
+        referralInput.value = baseUrl + '?ref=TON_CODE';
+    }
+
     const form = document.getElementById('emailForm');
     if (form) {
         const emailInput = document.getElementById('emailInput');
