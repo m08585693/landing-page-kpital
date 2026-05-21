@@ -571,53 +571,28 @@ main {
 /* ─── PARRAINAGE ─── */
 .parrainage-sub {
     margin-bottom: 40px;
+    max-width: 480px;
 }
 
-.parrainage-cards {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 40px;
-}
-
-.parrainage-card {
-    flex: 1;
-    background: #0d1117;
-    border: 1px solid #1c2230;
+.parrainage-card-single {
+    max-width: 380px;
+    margin: 0 auto 40px;
+    background: rgba(77, 158, 255, 0.04);
+    border: 1px solid rgba(77, 158, 255, 0.4);
     border-radius: 16px;
-    padding: 28px 24px;
+    padding: 36px 32px;
     text-align: center;
     transition: border-color 0.3s, transform 0.3s;
 }
 
-.parrainage-card:hover {
-    border-color: rgba(77, 158, 255, 0.3);
+.parrainage-card-single:hover {
+    border-color: #4d9eff;
     transform: translateY(-2px);
-}
-
-.parrainage-card-highlight {
-    border-color: rgba(77, 158, 255, 0.4);
-    background: rgba(77, 158, 255, 0.04);
-    position: relative;
-}
-
-.parrainage-card-highlight::before {
-    content: 'Populaire';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #4d9eff;
-    color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 100px;
-    letter-spacing: 0.3px;
 }
 
 .parrainage-count {
     display: block;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 800;
     color: #4d9eff;
     line-height: 1;
@@ -625,20 +600,30 @@ main {
 }
 
 .parrainage-label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.5);
     display: block;
     margin-bottom: 12px;
 }
 
 .parrainage-desc {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.5;
+    margin-bottom: 16px;
 }
 
 .parrainage-desc strong {
     color: #ffffff;
+}
+
+.parrainage-badge-micro {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 100px;
+    padding: 4px 14px;
 }
 
 .parrainage-link-box {
@@ -648,7 +633,7 @@ main {
 .parrainage-link-row {
     display: flex;
     gap: 12px;
-    max-width: 520px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -658,20 +643,28 @@ main {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.04);
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.7);
     font-family: 'Inter', monospace;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     outline: none;
     cursor: default;
     user-select: all;
 }
 
-.btn-copy {
+.parrainage-btns {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn-copy,
+.btn-share {
     white-space: nowrap;
     font-size: 0.9rem;
 }
 
-.btn-copy.copied {
+.btn-copy.copied,
+.btn-share.sent {
     background: #22c55e;
     pointer-events: none;
 }
@@ -733,11 +726,11 @@ main {
         padding-bottom: 60px;
     }
 
-    .parrainage-cards {
+    .parrainage-link-row {
         flex-direction: column;
     }
 
-    .parrainage-link-row {
+    .parrainage-btns {
         flex-direction: column;
     }
 

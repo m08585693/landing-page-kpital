@@ -92,31 +92,55 @@
         });
     }
 
+    function getLink() {
+        const input = document.getElementById('referralInput');
+        return input ? input.value : 'kpital.app/invite/ABC123';
+    }
+
     const copyBtn = document.getElementById('copyBtn');
     if (copyBtn) {
         copyBtn.addEventListener('click', async () => {
-            const input = document.getElementById('referralInput');
-            if (!input) return;
-
+            const link = getLink();
             try {
-                await navigator.clipboard.writeText(input.value);
-                copyBtn.textContent = 'Copié !';
-                copyBtn.classList.add('copied');
-                setTimeout(() => {
-                    copyBtn.textContent = "Copier mon lien ›";
-                    copyBtn.classList.remove('copied');
-                }, 2000);
+                await navigator.clipboard.writeText(link);
             } catch {
-                input.select();
-                input.setSelectionRange(0, 99999);
+                const textarea = document.createElement('textarea');
+                textarea.value = link;
+                document.body.appendChild(textarea);
+                textarea.select();
                 document.execCommand('copy');
-                copyBtn.textContent = 'Copié !';
-                copyBtn.classList.add('copied');
-                setTimeout(() => {
-                    copyBtn.textContent = "Copier mon lien ›";
-                    copyBtn.classList.remove('copied');
-                }, 2000);
+                document.body.removeChild(textarea);
             }
+            copyBtn.textContent = '✓ Copié !';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+                copyBtn.textContent = "Copier le lien ›";
+                copyBtn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    const shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            const link = getLink();
+            const message = "J'ai rejoint la bêta de KPITAL, l'appli qui t'aide à épargner pour tes vrais projets. Rejoins-moi ici : " + link;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title: 'KPITAL', text: message, url: link });
+                    shareBtn.textContent = '✓ Envoyé !';
+                    shareBtn.classList.add('sent');
+                    setTimeout(() => {
+                        shareBtn.textContent = "Partager ›";
+                        shareBtn.classList.remove('sent');
+                    }, 2000);
+                    return;
+                } catch (err) {
+                    if (err instanceof DOMException && err.name === 'AbortError') return;
+                }
+            }
+            window.open('https://wa.me/?text=' + encodeURIComponent(message), '_blank');
         });
     }
 })();
