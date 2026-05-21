@@ -62,10 +62,11 @@
 
                 if (error) throw error;
 
+                const base = window.location.origin + window.location.pathname.replace(/\/$/, '');
                 const code = email.split('@')[0].slice(0, 4).toUpperCase() + Math.random().toString(36).slice(2, 6).toUpperCase();
                 const referralInput = document.getElementById('referralInput');
                 if (referralInput) {
-                    referralInput.value = 'kpital.app/invite/' + code;
+                    referralInput.value = base + '?ref=' + code;
                 }
 
                 form.innerHTML = `
@@ -94,7 +95,9 @@
 
     function getLink() {
         const input = document.getElementById('referralInput');
-        return input ? input.value : 'kpital.app/invite/ABC123';
+        if (input && input.value) return input.value;
+        const base = window.location.origin + window.location.pathname.replace(/\/$/, '');
+        return base;
     }
 
     const copyBtn = document.getElementById('copyBtn');
